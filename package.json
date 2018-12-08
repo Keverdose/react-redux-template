@@ -8,10 +8,16 @@
 		"react-scripts-ts": "3.1.0"
 	},
 	"scripts": {
+		"analyze": "source-map-explorer build/static/js/main.*",
 		"start": "react-scripts-ts start",
 		"build": "react-scripts-ts build",
+		"lint:check": "tslint './src/**/*.{ts,tsx}'",
+		"lint:fix": "tslint --fix './src/**/*{ts,tsx}'",
 		"test": "react-scripts-ts test --env=jsdom",
-		"eject": "react-scripts-ts eject"
+		"eject": "react-scripts-ts eject",
+		"precommit": "npm run git-hook",
+		"prepush": "npm run git-hook",
+		"git-hook": "lint-staged"
 	},
 	"devDependencies": {
 		"@types/jest": "^23.3.10",
@@ -20,6 +26,7 @@
 		"@types/react-dom": "^16.0.11",
 		"lint-staged": "^8.1.0",
 		"prettier": "^1.14.2",
+		"source-map-explorer": "^1.6.0",
 		"typescript": "^3.2.2"
 	},
 	"lint-staged": {
