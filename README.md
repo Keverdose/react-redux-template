@@ -12,4 +12,5 @@ This repository is for me and whoever would like to have a project with react an
 - redux-saga
 - reduxsauce
 - react-router-dom
-- react-router-redux
+- react-router-redux deprecated
+- connected-react-router

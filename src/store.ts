@@ -1,5 +1,5 @@
 import createHistory from "history/createBrowserHistory"
-import { routerMiddleware } from "react-router-redux"
+import { routerMiddleware } from "connected-react-router"
 import { applyMiddleware, compose, createStore } from "redux"
 import { persistReducer, persistStore } from "redux-persist"
 import storage from "redux-persist/lib/storage"
@@ -36,7 +36,7 @@ export default () => {
     ...enhancers
   )
 
-  const persistedReducer = persistReducer(persistConfig, rootReducer)
+  const persistedReducer = persistReducer(persistConfig, rootReducer(history))
   const store = createStore(persistedReducer, initialState, composedEnhancers)
 
   const persistor = persistStore(store)
