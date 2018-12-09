@@ -14,3 +14,9 @@ This repository is for me and whoever would like to have a project with react an
 - react-router-dom
 - react-router-redux deprecated
 - connected-react-router
+
+## VSCODE
+
+- Use Prettier
+- TSLint
+- Debugger for Chrome
