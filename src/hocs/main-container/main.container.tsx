@@ -41,14 +41,10 @@ export default (Component?: any) => {
 
   interface IMapState {
     innerWidth: number
-    asideIsOpen: boolean
-    hivePermissions: object[]
-    currentUser: string
   }
 
   const mapStateToProps = (state: any) => ({
-    innerWidth: path(["innerWidth"], state.ui),
-    asideIsOpen: path(["asideIsOpen"], state.ui)
+    innerWidth: path(["innerWidth"], state.ui)
   })
 
   const mapDispatchToProps = (dispatch: any) => ({
