@@ -1,45 +1,69 @@
 {
-	"name": "react-redux-template",
-	"version": "0.1.0",
-	"private": true,
-	"dependencies": {
-		"react": "^16.6.3",
-		"react-dom": "^16.6.3",
-		"react-scripts-ts": "3.1.0"
-	},
-	"scripts": {
-		"analyze": "source-map-explorer build/static/js/main.*",
-		"start": "react-scripts-ts start",
-		"build": "react-scripts-ts build",
-		"lint:check": "tslint './src/**/*.{ts,tsx}'",
-		"lint:fix": "tslint --fix './src/**/*{ts,tsx}'",
-		"test": "react-scripts-ts test --env=jsdom",
-		"eject": "react-scripts-ts eject",
-		"precommit": "npm run git-hook",
-		"prepush": "npm run git-hook",
-		"git-hook": "lint-staged"
-	},
-	"devDependencies": {
-		"@types/jest": "^23.3.10",
-		"@types/node": "^10.12.12",
-		"@types/react": "^16.7.13",
-		"@types/react-dom": "^16.0.11",
-		"lint-staged": "^8.1.0",
-		"prettier": "^1.14.2",
-		"source-map-explorer": "^1.6.0",
-		"typescript": "^3.2.2"
-	},
-	"lint-staged": {
-		"src/**/*.{js,jsx}": [
-			"yarn lint:check",
-			"git add"
-		],
-		"src/*.{js,jsx,json,css}": [
-			"prettier --write --no-semi --print-width 80",
-			"git add"
-		]
-	},
-	"prettier": {
-		"semi": false
-	}
+  "name": "react-redux-template",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "apisauce": "^1.0.1",
+    "classnames": "^2.2.6",
+    "query-string": "^6.2.0",
+    "ramda": "^0.26.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0-beta.3",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "next",
+    "react-scripts-ts": "3.1.0",
+    "recompose": "^0.30.0",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^0.16.2",
+    "reduxsauce": "^1.0.0",
+    "styled-components": "^4.1.2",
+    "styled-system": "^3.1.11"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "lint:check": "tslint './src/**/*.{ts,tsx}'",
+    "lint:fix": "tslint --fix './src/**/*{ts,tsx}'",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "precommit": "npm run git-hook",
+    "prepush": "npm run git-hook",
+    "git-hook": "lint-staged"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.6",
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.12",
+    "@types/query-string": "^6.1.1",
+    "@types/ramda": "^0.25.42",
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-redux": "^6.0.11",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/react-router-redux": "^5.0.17",
+    "@types/recompose": "^0.30.0",
+    "@types/redux": "^3.6.0",
+    "@types/redux-persist": "^4.3.1",
+    "@types/styled-components": "^4.1.2",
+    "@types/styled-system": "^3.0.9",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.14.2",
+    "source-map-explorer": "^1.6.0",
+    "typescript": "^3.2.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "yarn lint:check",
+      "git add"
+    ],
+    "src/*.{js,jsx,json,css}": [
+      "prettier --write --no-semi --print-width 80",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "semi": false
+  }
 }
