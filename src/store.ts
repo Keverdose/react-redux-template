@@ -20,8 +20,7 @@ export default () => {
     version: 1,
     storage
   }
-
-  const middleware = [sagaMiddleware, routerMiddleware(history)]
+  const persistedReducer = persistReducer(persistConfig, rootReducer(history))
 
   if (process.env.NODE_ENV === "development") {
     const devToolsExtension = (window as any).__REDUX_DEVTOOLS_EXTENSION__
@@ -30,13 +29,13 @@ export default () => {
       enhancers.push(devToolsExtension())
     }
   }
+  const middleware = [sagaMiddleware, routerMiddleware(history)]
 
   const composedEnhancers = compose(
     applyMiddleware(...middleware),
     ...enhancers
   )
 
-  const persistedReducer = persistReducer(persistConfig, rootReducer(history))
   const store = createStore(persistedReducer, initialState, composedEnhancers)
 
   const persistor = persistStore(store)

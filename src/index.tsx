@@ -7,14 +7,17 @@ import registerServiceWorker from "./registerServiceWorker"
 import { default as configureStore, history } from "./store"
 
 import "./index.css"
+import { PersistGate } from "redux-persist/integration/react"
 
 export const { store, persistor } = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById("root") as HTMLElement
 )
