@@ -11,7 +11,7 @@ export function* testApiEndpoint(api: any) {
       yield put(SampleActions.sampleTestFailure())
       throw new Error(errorMessage)
     }
-    const data = path(["data", "data"], response)
+    const data = path(["data", "url"], response)
     yield put(SampleActions.sampleTestSuccess(data))
   } catch (e) {
     console.error(e)

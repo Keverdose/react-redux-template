@@ -4,8 +4,9 @@ import { compose } from "recompose"
 import MainContainer from "../hocs/main-container"
 import SampleActions from "../redux/sample.redux"
 import Section from "../components/section"
+import path from "ramda/es/path"
 
-interface IProps extends IMapDispatch {
+interface IProps extends IMapDispatch, IMapState {
   handleTest: () => void
 }
 
@@ -24,16 +25,27 @@ class MainScreen extends React.Component<IProps, IState> {
   }
 
   public render() {
+    const { imageUrl } = this.props
+    const renderImg: boolean = imageUrl ? true : false
     return (
-      <Section>
+      <Section flexDirection="column">
         {this.state.default}
         <Section>
           <button onClick={this.handleTest}>Test</button>
         </Section>
+        {renderImg ? <img src={imageUrl} /> : <Section />}
       </Section>
     )
   }
 }
+
+interface IMapState {
+  imageUrl: string | undefined
+}
+
+const mapStateToProps = (state: any) => ({
+  imageUrl: path(["sample", "data"], state)
+})
 
 interface IMapDispatch {
   sampleTest: () => void
@@ -45,7 +57,7 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 export default compose(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   ),
   MainContainer
